@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+ch01/
+.DS_Store
+*~
+*.gz
+venv/
+.idea/
