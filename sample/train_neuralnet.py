@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from dataset.mnist import load_mnist
 from network.two_layer_net import TwoLayerNet
+from common.optimizer import *
 
 sys.path.append(os.pardir)
 
@@ -21,7 +22,8 @@ def main():
     iters_num = 10000  # 繰り返しの回数を適宜設定
     train_size = x_train.shape[0]
     batch_size = 100
-    learning_rate = 0.1
+
+    optimizer = Adam()
 
     train_loss_list = []
     train_acc_list = []
@@ -42,8 +44,7 @@ def main():
         grad = network.gradient(x_batch, t_batch)  # 高速化（誤差逆伝播法）
 
         # パラメータの更新
-        for key in ('W1', 'b1', 'W2', 'b2'):
-            network.params[key] -= learning_rate * grad[key]
+        optimizer.update(network.params, grad)
 
         # 学習経過の記録
         loss = network.loss(x_batch, t_batch)
