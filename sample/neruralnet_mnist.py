@@ -1,4 +1,6 @@
 # coding: utf-8
+# ニューラルネットワークの推論処理
+
 import sys
 import os
 import numpy as np
