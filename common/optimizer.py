@@ -31,6 +31,13 @@ class Momentum:
             params[key] += self.v[key]
 
 
+# Nesterov's Accelerated Gradient
+class Nesterov:
+    # TODO
+    def __init__(self):
+        None
+
+
 # AdaGrad
 class AdaGrad:
     def __init__(self, lr=0.01):
